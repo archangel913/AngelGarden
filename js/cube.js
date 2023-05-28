@@ -1,5 +1,5 @@
 
-import * as THREE from "three";
+import * as THREE from "https://cdn.skypack.dev/three@0.151.3";
 
 // サイズを指定
 const width = 960;
