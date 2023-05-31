@@ -1,14 +1,17 @@
-import * as THREE from "https://cdn.skypack.dev/three@0.151.3";
+import * as THREE from "three";
 import { boxUpdate, getScene } from "./scene.js";
 import { Camera } from "./camera.js";
 
 document.addEventListener('keydown', keydown_ivent);
 document.addEventListener('keyup', keyup_ivent);
+document.getElementById('canvas').addEventListener('click', click);
 
 let keyW = false;
 let keyA = false;
 let keyS = false;
 let keyD = false;
+let keySpace = false;
+let keyShift = false;
 
 const width = 960;
 const height = 540;
@@ -30,18 +33,24 @@ function tick() {
 
     let v = new THREE.Vector3(0, 0, 0);
     if (keyW) {
-        v.add(new THREE.Vector3(0, 0, -10));
+        v.add(new THREE.Vector3(0, 0, 1));
     }
     if (keyA) {
-        v.add(new THREE.Vector3(10, 0, 0));
+        v.add(new THREE.Vector3(-1, 0, 0));
     }
     if (keyS) {
-        v.add(new THREE.Vector3(0, 0, 10));
+        v.add(new THREE.Vector3(0, 0, -1));
     }
     if (keyD) {
-        v.add(new THREE.Vector3(-10, 0, 0));
+        v.add(new THREE.Vector3(1, 0, 0));
     }
-    camera.addPosition(v)
+    if(keySpace){
+        v.add(new THREE.Vector3(0, 1, 0));
+    }
+    if(keyShift){
+        v.add(new THREE.Vector3(0, -1, 0));
+    }
+    camera.update(v)
     requestAnimationFrame(tick);
 }
 
@@ -58,6 +67,15 @@ function keydown_ivent(e) {
     if (e.key === 'd' || e.key === 'D') {
         keyD = true;
     }
+    if(e.key === ' '){
+        keySpace = true;
+    }
+    if(e.key === 'Shift'){
+        keyShift = true;
+    }
+    if (e.key === 'Escape') {
+        camera.mouseUnlock();
+    }
 }
 
 function keyup_ivent(e) {
@@ -73,4 +91,14 @@ function keyup_ivent(e) {
     if (e.key === 'd' || e.key === 'D') {
         keyD = false;
     }
+    if(e.key === ' '){
+        keySpace = false;
+    }
+    if(e.key === 'Shift'){
+        keyShift = false;
+    }
+}
+
+function click(e){
+    camera.mouseLock();
 }

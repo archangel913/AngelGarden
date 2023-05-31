@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 
 <head>
+    <title>Angel Garden</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.151.3/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.151.3/examples/jsm/"
+            }
+        }
+    </script>
     <script type="module" src="js/gameWindow/main.js"></script>
 </head>
 
 <body>
-    <canvas id="myCanvas"></canvas>
-    <div>
-        WASDで動けます。
+    <div id="canvas">
+        <canvas id="myCanvas"></canvas>
+    </div>
+    <div id="explain">
+        <p>
+            ゲームウィンドウをクリックで操作できるようになります。また、エスケープキーでマウスポインターを呼び戻せます。
+        </p>
+        <p>
+            "W"で前進、"S"で後退、"A"で左移動、"D"で右移動、スペースキーで上昇、シフトキーで下降。
+        </p>
+        <p>
+            現在スマホは未対応です。
+        </p>
+        <p>
+            また勉強で開発しておりますので、予告なく内容が変わります。いきなり変わります。
+        </p>
+    </div>
+    <div id="model_license">
+        <p>
+            ===================================================================
+        </p>
+        <p>
+            誠に勝手ながら、ShiniNet様の "ShiniNet式_メジ〇マoクイーン_v1.3" をお借りしています。
+        </p>
+        <p>
+            <a href="https://commons.nicovideo.jp/material/nc241757">Online License</a>
+        </p>
+        <p>
+            また当モデルのREADMEは<a href="models/MejiroMcQueen/ReadMe.txt">こちら</a>
+        </p>
+        <p>
+            ===================================================================
+        </p>
+    </div>
+    <div id="license">
+        <a href="LICENSE">Copyright (c) 2023 archangel913</a>
     </div>
 </body>
