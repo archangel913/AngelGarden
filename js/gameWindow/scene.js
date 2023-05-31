@@ -18,7 +18,7 @@ const loader = new MMDLoader();
 // Load a MMD model
 loader.load(
     // path to PMD/PMX file
-    'models/MejiroMcQueen/ShiniNet式_メジ〇マoクイーン_v1.3.pmx',
+    'models/MejiroMcQueen/MejiroMcQueen.pmx',
     // called when the resource is loaded
     function (mesh) {
         scene.add(mesh);
