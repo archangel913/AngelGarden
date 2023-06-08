@@ -25,9 +25,7 @@ renderer.setSize(width, height);
 const scene = getScene();
 const camera = new Camera(width, height);
 
-tick();
-
-function tick() {
+export default function tick() {
     boxUpdate();
     renderer.render(scene, camera.getCamera);
 
